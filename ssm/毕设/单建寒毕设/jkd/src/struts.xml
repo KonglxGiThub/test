@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC   
+     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"   
+     "http://struts.apache.org/dtds/struts-2.0.dtd">
+     
+     
+<struts>
+    <package name="liu" extends="struts-default">
+        <global-results>
+            <result name="succeed">/common/succeed.jsp</result>
+            <result name="msg">/common/msg.jsp</result>
+        </global-results>
+        
+        <action name="upload" class="com.util.upload" method="upload">
+             <result name="success">/upload/upload_re.jsp</result>
+        </action>
+        
+         
+        
+        <action name="adminAdd" class="adminAction" method="adminAdd">
+        </action>
+        <action name="adminDel" class="adminAction" method="adminDel">
+        </action>
+        <action name="adminMana" class="adminAction" method="adminMana">
+            <result name="success">/admin/admin/adminMana.jsp</result>
+        </action>
+        
+        
+        <action name="renyuanAdd" class="renyuanAction" method="renyuanAdd">
+        </action>
+        <action name="renyuanDel" class="renyuanAction" method="renyuanDel">
+        </action>
+        <action name="renyuanMana" class="renyuanAction" method="renyuanMana">
+            <result name="success">/admin/renyuan/renyuanMana.jsp</result>
+        </action>
+        <action name="renyuanDetail" class="renyuanAction" method="renyuanDetail">
+            <result name="success">/admin/renyuan/renyuanDetail.jsp</result>
+        </action>
+        <action name="renyuanAll" class="renyuanAction" method="renyuanAll">
+            <result name="success">/admin/renyuan/renyuanAll.jsp</result>
+        </action>
+        
+        
+        
+        <action name="tijianAdd" class="tijianAction" method="tijianAdd">
+        </action>
+        <action name="tijianDel" class="tijianAction" method="tijianDel">
+        </action>
+        <action name="tijianMana" class="tijianAction" method="tijianMana">
+            <result name="success">/admin/tijian/tijianMana.jsp</result>
+        </action>
+        
+        
+        
+        <action name="jibingAdd" class="jibingAction" method="jibingAdd">
+        </action>
+        <action name="jibingDel" class="jibingAction" method="jibingDel">
+        </action>
+        <action name="jibingMana" class="jibingAction" method="jibingMana">
+            <result name="success">/admin/jibing/jibingMana.jsp</result>
+        </action>
+        <action name="jibing_search" class="jibingAction" method="jibing_search">
+            <result name="success">/admin/jibing/jibingMana.jsp</result>
+        </action>
+    </package>
+</struts>

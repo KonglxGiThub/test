@@ -1,0 +1,15 @@
+body {font-family: "‘v‘Ì";font-size: 12px;background: url(../images/login/login_bg.jpg) repeat-x left top;}
+div,ul,li,dl,dt,dd,img,h1,h2{margin:0px;padding:0px;list-style-type: none;border:0;}
+.login {width: 467px;margin: 121px auto 0 auto;}
+.login_top {height: 96px;background: url(../images/login/login_top.jpg) no-repeat;}
+.login_cen {height: 193px;background: url(../images/login/login_cen.jpg) no-repeat;}
+.login_input {width: 330px;margin: 0 auto;padding-top:10px;}
+.login_input dl {width: 330px;margin-top: 19px;display: inline;float: left;}
+.login_input dd {float: left;width: 80px;color: #ffffff;font-size: 14px;text-align: right;padding: 7px 10px 0 0;}
+.login_input dt {width: 222px;float: left;height:40px;}
+.login_btn {background: url(../images/login/login_btn.jpg) no-repeat;height: 29px;width: 107px;display: inline;float: left;margin: 28px 0 0 158px;}
+.login_btn a {background: url(../images/login/login_btn.jpg) no-repeat;height: 29px;width: 107px;display: block;}
+.login_btn a:hover {background: url(../images/login/login_btn_a.jpg) no-repeat;height: 29px;width: 107px;display: block;}
+.login_bot {height: 50px;background: url(../images/login/login_bot.jpg) no-repeat;}
+.login_botft {height: 30px;line-height: 30px;padding-right: 35px;text-align: right;color: #989898;}
+.input {background: url(../images/login/login_input.jpg) no-repeat;border: 1px solid #096735;width: 213px;float: left;height: 24px;padding: 3px;color: #13412e;}

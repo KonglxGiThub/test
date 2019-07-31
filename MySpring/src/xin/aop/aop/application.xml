@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+       <!--  AOP的xml配置文件 -->
+       
+ 	  	 <!--  切入点程序 目标程序 -->
+       <bean id="target" class="xin.aop.aop.Target"></bean>
+       
+      	<!--  切面程序 代理程序 -->
+       <bean id="testBefore" class="xin.aop.aop.TestBefore"></bean>
+       
+       <!-- aop的配置根标签 -->
+       <aop:config>
+       
+			        	 <!-- 设置切入点 -->
+			        	 <!-- 第一个*表示所有的返回值类型，execution(* xin.aop.aop.Target.add())*后面要有一个空格 -->
+			        	<!--  第二个*表示参数类型 ，也可以用相应的参数类型，string-->
+	       		<!-- <aop:pointcut expression="execution(* xin.aop.aop.Target.late(*))" id="targetPoint"/> -->
+	       	
+	      		<!--  <aop:pointcut expression="within(xin.aop.aop.Target)" id="targetPoint"/>  -->
+	      		 
+	      		 
+	      		<!--  bean(target) target 是target类的bean的id -->
+	      		  <!-- <aop:pointcut expression="bean(target)" id="targetPoint"/>  -->
+	      		  
+	      		
+	      		<!--tar*匹配的是target类的bean的id，匹配tar后面的字母 -->
+	      		  <aop:pointcut expression="bean(tar*)" id="targetPoint"/> 
+	       	
+	       	
+	     	  			<!-- 设置切面 -->
+	       	<aop:aspect ref="testBefore">
+	       	
+				        <!-- 前置通知，method对应要插入的方法TestBefore里的tset方法,，pointcut-ref="targetPoint"对应切入点id -->
+				        <!--  前置通知就是切面程序在前，切入点程序在后 -->
+				       	<aop:before method="test" pointcut-ref="targetPoint"/>	       	
+				     	<!-- <aop:after-returning method="show" pointcut-ref="targetPoint" returning="ee"/>	  -->
+				     	
+				     	<!-- 异常通知   -->   
+				     	<!-- <aop:after-throwing method="ex" pointcut-ref="targetPoint" throwing="th"/>	 -->
+				     	
+				     	<!-- 最终通知 -->
+				     	<!-- <aop:after method="after" pointcut-ref="targetPoint"/> -->
+				     	
+				     	<!-- 环绕通知 ，不要和上面的通知写一起-->
+				     	<!-- <aop:around method="around" pointcut-ref="targetPoint"/> -->
+	       	</aop:aspect>
+	       	
+       </aop:config>
+       
+       
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

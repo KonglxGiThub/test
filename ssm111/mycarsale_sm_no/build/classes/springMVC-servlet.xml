@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/mvc
+						http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- 注解方式 -->
+	<mvc:annotation-driven validator="validator"
+		conversion-service="conversionService" />
+	<context:component-scan base-package="com.etc.admin.controllers"></context:component-scan>
+	<!-- 验证jsr303 -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<!--不设置则默认为classpath下的 ValidationMessages.properties -->
+		<property name="validationMessageSource" ref="validatemessageSource" />
+	</bean>
+	<bean id="validatemessageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:validatemessages" />
+		<property name="fileEncodings" value="utf-8" />
+		<property name="cacheSeconds" value="120" />
+	</bean>
+	<!-- 类型转换格式化 -->
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<!-- <property name="converters"> <list> <bean class="com.etc.converter.MyDateConverter"> 
+			<constructor-arg value="yyyy-MM-dd" /> </bean> </list> </property> -->
+		<!-- 格式化显示的配置 -->
+		<!-- <property name="formatters"> <list> <bean class="com.etc.converter.MyDateFormatter"> 
+			<constructor-arg value="yyyy-MM-dd" /> </bean> </list> </property> -->
+	</bean>
+
+	<!-- 指定国际化资源 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<!-- 国际化信息所在的文件名 -->
+		<property name="basename" value="messages" />
+		<!-- 如果在国际化资源文件中找不到对应代码的信息，就用这个代码作为名称 -->
+		<property name="useCodeAsDefaultMessage" value="true" />
+	</bean>
+
+	<!-- 异常resolver -->
+
+	<!-- 视图解析器jsp resolver -->
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/admin/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- 支持文件上传 resolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+</beans>

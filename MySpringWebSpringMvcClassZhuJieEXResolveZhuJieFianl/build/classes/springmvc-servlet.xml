@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/mvc
+						http://www.springframework.org/schema/mvc/spring-mvc.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd">
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.icss.springmvc_1201_helloworld.controller" />
+	<!--自定义异常处理 -->
+<!-- <bean id="myExceptionHandler" class="com.icss.springmvcEX.MyExceptionResolver" />
+ -->	
+<!-- 	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+	定义默认的异常处理页面，当该异常类型的注册时使用  ,error是页面名
+	<property name="defaultErrorView" value="error">
+	</property> 
+	定义异常处理页面用来获取异常信息的变量名，默认名为exception 
+	<property name="exceptionAttribute" value="ex"></property> 
+	定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值 
+	<property name="exceptionMappings"> 
+		<props> 
+
+			<prop key="com.icss.springmvcEX.MyException">my-error</prop> 
+			这里还可以继续扩展对不同异常类型的处理 
+		</props>
+	</property>
+ </bean>  -->
+	<!-- 视图解析器 -->
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+</beans>

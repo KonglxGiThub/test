@@ -1,0 +1,14 @@
+.icons7_new, .icons16_ji, .icons16_dai, .icons16_lie, .icons16_jipin, .icons16_daizhao, .icons16_zhaopinhui, .icons15_xing, .icons15_ye, .icons15_jiang { display: inline-block; font-size: 1px; line-height: 1px }
+.icons7_new { width: 24px; height: 8px; background:url(../images/icons18.png) -14px -32px no-repeat }
+.icons15_xing, .icons15_ye { width: 16px; height: 16px; background:url(../images/icon_xing.png) 0 0 no-repeat }
+.icons15_ye { background:url(../images/icons15.png) -18px 0 no-repeat }
+.icons15_jiang { width: 13px; height: 15px; background:url(../images/icons15.png) 0 0 no-repeat }
+.icons16_ji, .icons16_dai, .icons16_lie, .icons16_jipin, .icons16_daizhao, .icons16_zhaopinhui { width: 16px; height: 16px; background:url(../images/icons16.png) no-repeat }
+.icons16_ji { width: 17px; height: 17px; background-position: 0 0 }
+.icons16_zhaopinhui { width: 42px; height: 18px; background-position: 0 -26px }
+.icons16_jipin { width: 42px; height: 18px; background-position: 0 -26px }
+.icons16_daizhao { width: 30px; height: 18px; background-position: -52px -26px }
+.icons16_lie { background-position: -17px 0 }
+.icons16_dai { background-position: -26px 0 }
+.icon-ji, .icon-ding { width: 16px; height: 16px; background:url(../images/ma-icon.jpg) -26px 0 no-repeat; display: inline-block; vertical-align: middle; margin-left: 3px }
+.icon-ding { background-position: 0 0 }

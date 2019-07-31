@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+      
+         <!--连接池的配置，这个name和calss不可以动，固定的 -->
+       <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+			<property name="driverClass" value="oracle.jdbc.OracleDriver"/>
+			<property name="user" value="Xin"/>
+			<property name="password" value="xin"/>
+			<property name="initialPoolSize" value="3"/>
+			<property name="maxPoolSize" value="10"/>
+			<property name="minPoolSize" value="1"/>
+			<property name="acquireIncrement" value="3"/>
+			<property name="maxIdleTime" value="60"/>
+		</bean>
+		<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="ds"></property>
+		</bean>
+		
+		<bean id="userDaoImpl" class="springJdcbTransaction.dao.UserDaoImpl">
+			<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+		</bean>
+		<bean id="userServiceImpl" class="springJdcbTransaction.service.UserServiceImpl"> 
+			<property name="dao" ref="userDaoImpl"></property>
+		</bean>
+		<bean id="userController" class="springJdcbTransaction.controller.UserController">
+			<property name="userServiceImpl" ref="userServiceImpl"></property>
+		</bean>
+		<bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="ds"></property>
+		</bean>
+		
+		<tx:advice id="ta" transaction-manager="dataSourceTransactionManager">
+			<tx:attributes>
+				<tx:method name="add*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+				<tx:method name="delete*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+				<tx:method name="update*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+				<tx:method name="find*"  read-only="true"/>
+				<tx:method name="show*"  read-only="true"/>
+			</tx:attributes>
+		</tx:advice>
+		
+		<aop:config>
+			<aop:pointcut expression="within(springJdcbTransaction.*)" id="userServicePoint"/>
+			<aop:advisor advice-ref="ta" pointcut-ref="userServicePoint"/>
+		</aop:config>
+		
+</beans>

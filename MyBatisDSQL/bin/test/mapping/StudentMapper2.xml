@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.dao.StudentMapper2" >
+  <resultMap id="BaseResultMap" type="Student" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="likes" property="likes" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, sex, birthday, age, classid, likes
+  </sql>
+  
+  <select id="selectByForEach" resultMap="BaseResultMap">
+  	select * from
+   student 
+   where id in
+   <!-- array固定的表示遍历的是数组，集合用list表示，item属性的名字随便起 -->
+   <foreach collection="array" item="sid" open="(" close=")" separator=",">
+   #{sid}
+   </foreach>	
+  </select>
+  
+  
+  	<update id="updateBySet" parameterType="Student">
+  	update student
+  		<if test="age != null and age !=''">
+  		age = ${age},
+  		</if>
+  		 <if test="name != null and name !=''">
+ 		 name =#{name},
+  	</if>
+  		where id=${id}
+  	</update>
+  
+  
+	 <select id="selectByWhere" resultMap="BaseResultMap" parameterType="Student">
+  	select
+  	<include refid="Base_Column_List"></include>
+  	from student
+  	<!-- 如果没有符合的条件就查询全部信息，会自动去掉第一个and -->
+  	<where>
+  	  <if test="name != null and name !=''">
+  	and name =#{name}
+  	</if>
+  	<if test="age != null and age !=''">
+  	and age =#{age}
+  	</if>
+  	<if test="id != null and id !=''">
+  	and id =#{id}
+  	</if>
+  	</where>
+  </select>
+  
+	  <select id="selectByTrim" resultMap="BaseResultMap" parameterType="Student">
+  	select
+  	<include refid="Base_Column_List"></include>
+  	from student
+  	<!-- 如果没有符合的条件就查询全部信息，会把where去掉 -->
+  	<trim prefix="where" prefixOverrides="and">
+  	  	<if test="name != null and name !=''">
+  	and name =#{name}
+  	</if>
+  	<if test="age != null and age !=''">
+  	and age =#{age}
+  	</if>
+  	</trim>
+  </select>
+  
+  
+  <select id="selectByIf" resultMap="BaseResultMap" parameterType="Student">
+  	select
+  	<include refid="Base_Column_List"></include>
+  	from student
+  	where id = #{id}
+  	<if test="name != null and name !=''">
+  	and name =#{name}
+  	</if>
+  	<if test="age != null and age !=''">
+  	and age =#{age}
+  	</if>
+  </select>
+  
+  
+    <select id="selectByChoose" resultMap="BaseResultMap" parameterType="Student">
+ 	 	select
+  	<include refid="Base_Column_List"></include>
+	  	from student
+	  	where id = #{id}
+  	<choose>
+  	<when test="name != null and name !=''">
+  		and name =#{name}
+  	</when>
+  	<when test="age != null and age !=''">
+  		and age =#{age}
+  	</when>
+  	<otherwise>
+  		and sex=#{sex}
+  	</otherwise>
+  	</choose>
+  </select>
+</mapper>

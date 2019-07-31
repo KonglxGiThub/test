@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+* {
+     margin:0;
+     padding:0;
+}
+.mynorth h1{
+	font-size:50px;
+	line-heigh:63px;
+	color:white;
+	text-align:center;
+}
+
+.mysouth h1{
+	font-size:20px;
+	line-heigh:50px;
+	color:white;
+	text-align:right;
+}
+.helptitle{
+	font-size:40px;
+	margin:10;
+	padding:0;
+	text-align:center;
+}
+.help {
+	margin:30;
+	padding:0;
+	font-size:20px;
+	text-indent:2em;
+}

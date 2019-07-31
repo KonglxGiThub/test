@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd">
+	<diskStore path="D:/cache" />
+	<defaultCache maxElementsInMemory="10000"
+		maxElementsOnDisk="1000" eternal="false" overflowToDisk="true"
+		timeToIdleSeconds="300" timeToLiveSeconds="600" maxEntriesLocalHeap="10000"
+		maxEntriesLocalDisk="10000000" />
+
+	<!-- <cache name="tplCache" maxElementsInMemory="100" eternal="true"
+		overflowToDisk="false" diskSpoolBufferSizeMB="30" maxElementsOnDisk="10000000"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" statistics="false" />
+	<cache name="dataConfigCache" maxElementsInMemory="10000"
+		timeToIdleSeconds="300" eternal="false" overflowToDisk="false"
+		diskSpoolBufferSizeMB="30" maxElementsOnDisk="10000000"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" statistics="false" />
+	缓存3小时
+	<cache name="threeHourCache" maxElementsInMemory="100"
+		timeToLiveSeconds="10800" eternal="false" overflowToDisk="false"
+		diskSpoolBufferSizeMB="30" maxElementsOnDisk="10000000"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" statistics="false" clearOnFlush="true" />
+	缓存1小时
+	<cache name="oneHourCache" maxElementsInMemory="100"
+		timeToLiveSeconds="3600" eternal="false" overflowToDisk="false"
+		diskSpoolBufferSizeMB="30" maxElementsOnDisk="10000000"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" statistics="false" clearOnFlush="true" />
+	缓存5分钟
+	<cache name="fiveMinsCache" maxElementsInMemory="10000"
+		timeToLiveSeconds="300" eternal="false" overflowToDisk="false"
+		diskSpoolBufferSizeMB="30" maxElementsOnDisk="10000000"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" statistics="false" clearOnFlush="true" /> -->
+</ehcache>

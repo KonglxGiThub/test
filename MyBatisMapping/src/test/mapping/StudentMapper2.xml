@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.dao.StudentMapper2" >
+<!-- resultMap定义的column可以和数据库列明不一致，他对应sql语句的列，resultType必须一致 -->
+  <resultMap id="BaseResultMap" type="Student" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <!-- 只实现likes转换，不是总体 -->
+    <result column="likes" property="likes" jdbcType="VARCHAR"
+     typeHandler="test.handler.StringArrayTypeHandler"/>
+    <result column="calssname" property="calssname" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  
+  <sql id="Base_Column_List" >
+    id, name, sex, birthday, age, classid, likes
+  </sql>
+  
+ <delete id="deleteById" parameterType="java.lang.Integer">
+ 	delete from student
+ 	where id=#{id}
+ </delete>
+ 
+ <insert id="insertStudent" parameterType="Student">
+ 	insert into student(id,name,age) 
+ 	values(#{id},#{name},#{age})
+ </insert>
+ 
+ <update id="updateNameById">
+ 	update student set name=#{0}
+ 	where id=#{1}
+ </update>
+ 
+  <select id="selectAllStudent" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List"></include>
+  	from student
+  </select>
+  
+  
+  <select id="selectAllStudentAndClassName"  resultMap="BaseResultMap">
+  select s.*,c.classname calssname
+  from student s,clazz c 
+  where s.classid=c.id
+  </select>
+</mapper>
+
+
+
+
+
+
+
+
+

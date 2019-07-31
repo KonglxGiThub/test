@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		    http://www.springframework.org/schema/beans/spring-beans.xsd">
+		    
+		<bean id="girl" class="springproperty.list.Girl">
+				<property name="name" value="赵丽颖"></property>
+		</bean>
+		
+		<bean id="girl1" class="springproperty.list.Girl">
+				<property name="name" value="赵丽颖11"></property>
+		</bean>
+		
+		<bean id="room" class="springproperty.list.Room">
+				<property name="name" value="room"></property>
+				<property name="id" value="202"></property>
+		</bean>
+		
+        <bean id="body" class="springproperty.list.Body"  lazy-init="true">
+			<property name="GiirlFriends">
+				<list>
+					<ref bean="girl"></ref>
+					<ref bean="girl1"></ref>
+				</list>
+			</property>
+			<property name="roomMap">
+				<map>
+				<!-- 为key动态赋值，id是room类的属性， -->
+				<entry key="#{room.id}" value-ref="room"></entry>
+				</map>
+			</property>
+       </bean>
+       
+       
+       
+       
+        </beans>

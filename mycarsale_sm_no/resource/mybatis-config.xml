@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.etc.admin.models.CarType" alias="CarType" />
+		<typeAlias type="com.etc.admin.models.CarBrand" alias="CarBrand" />
+		<typeAlias type="com.etc.admin.models.CarGoods" alias="CarGoods" />
+		<typeAlias type="com.etc.admin.models.CarImg" alias="CarImg" />
+		<typeAlias type="com.etc.admin.models.CarUser" alias="CarUser" />
+	</typeAliases>
+</configuration>

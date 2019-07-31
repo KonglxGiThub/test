@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.etc.admin.daos.CarGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.etc.admin.models.CarGoods" >
+
+    <id column="car_id" property="carId" jdbcType="INTEGER" />
+    <id column="img_id" property="imgId" jdbcType="VARCHAR" />
+    <result column="type_id" property="typeId" jdbcType="INTEGER" />
+    <result column="brand_id" property="brandId" jdbcType="INTEGER" />
+    <result column="car_name" property="carName" jdbcType="VARCHAR" />
+    <result column="carparam1" property="carparam1" jdbcType="VARCHAR" />
+    <result column="carparam2" property="carparam2" jdbcType="VARCHAR" />
+    <result column="carparam3" property="carparam3" jdbcType="VARCHAR" />
+    <result column="carparam4" property="carparam4" jdbcType="VARCHAR" />
+    <result column="carparam5" property="carparam5" jdbcType="VARCHAR" />
+    <result column="carparam6" property="carparam6" jdbcType="VARCHAR" />
+    <result column="goods_Del" property="goodsDel" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="lastdate" property="lastdate" jdbcType="TIMESTAMP" />
+    <result column="gorder" property="gorder" jdbcType="VARCHAR" />
+    
+          
+  <association property="carBrand" resultMap="com.etc.admin.daos.CarBrandMapper.BaseResultMap"></association>
+  <association property="carType" resultMap="com.etc.admin.daos.CarTypeMapper.BaseResultMap"></association>
+  <association property="carImg" resultMap="com.etc.admin.daos.CarImgMapper.BaseResultMap"></association>
+  
+  
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="CarGoods" extends="BaseResultMap" >
+    <result column="car_des" property="carDes" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    car_id, img_id, type_id, brand_id, car_name, carparam1, carparam2, carparam3, carparam4, 
+    carparam5, carparam6, goods_Del, price, lastdate, gorder
+  </sql>
+  <sql id="Blob_Column_List" >
+    car_des
+  </sql>
+  <!--   ================================================================= -->
+  <insert id="insertCarGoodsImgId">
+  		UPDATE car_goods SET img_id = (select max(id) from car_img)
+				where car_id = (SELECT a.car_id FROM (select MAX(car_id) car_id from car_goods) a)
+  </insert>
+  
+  <select id="selectCarGoodsMaxId" resultType="java.lang.Integer">
+  SELECT MAX(car_id)from car_goods
+  </select>
+  
+  <insert id="insertCarGoods" parameterType="CarGoods">
+  insert into car_goods(type_id,brand_id,car_name,car_des,carparam1,carparam2,carparam3,carparam4,carparam5,carparam6,
+											goods_Del,price,lastdate,gorder)
+values(#{typeId},#{brandId},#{carName},#{carDes},#{carparam1},#{carparam2},#{carparam3},#{carparam4},#{carparam5},#{carparam6},#{goodsDel},
+#{price},#{lastdate},#{gorder})
+  </insert>
+  <select id="selectCarGoodsOfType" resultMap="ResultMapWithBLOBs">
+  SELECT * from car_type
+  </select>
+  
+  <delete id="deleteCarGoodsById" parameterType="java.lang.Integer">
+  delete from car_goods where car_id = #{0}
+  </delete>
+  
+  
+  <select id="selectcarGoodsCountPaging" resultType="java.lang.Integer">
+  	SELECT COUNT(car_id) from car_goods
+  </select>
+  
+  <select id="selectcarGoodsPaging" resultMap="ResultMapWithBLOBs">
+select DISTINCT g.car_id,t.type_name,b.brand_name,i.id,i.img_id,i.img_name,i.img_path,g.price,g.car_name,g.car_des,g.carparam1,g.carparam2,g.carparam3,
+			g.carparam4,g.carparam5,g.carparam6,g.goods_Del,g.lastdate,g.gorder
+from car_brand b,car_goods g,car_img i,car_type t
+where b.brand_id=g.brand_id and g.img_id = i.id  and g.type_id = t.type_id
+ORDER BY g.car_id ASC LIMIT #{0},3
+  </select>
+  
+  
+  
+  
+  
+  
+  
+<!--   ================================================================= -->
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="CarGoods" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from car_goods
+    where car_id = #{carId,jdbcType=INTEGER}
+      and img_id = #{imgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="CarGoods" >
+    delete from car_goods
+    where car_id = #{carId,jdbcType=INTEGER}
+      and img_id = #{imgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="CarGoods" >
+    insert into car_goods (car_id, img_id, type_id, 
+      brand_id, car_name, carparam1, 
+      carparam2, carparam3, carparam4, 
+      carparam5, carparam6, goods_Del, 
+      price, lastdate, gorder, 
+      car_des)
+    values (#{carId,jdbcType=INTEGER}, #{imgId,jdbcType=VARCHAR}, #{typeId,jdbcType=INTEGER}, 
+      #{brandId,jdbcType=INTEGER}, #{carName,jdbcType=VARCHAR}, #{carparam1,jdbcType=VARCHAR}, 
+      #{carparam2,jdbcType=VARCHAR}, #{carparam3,jdbcType=VARCHAR}, #{carparam4,jdbcType=VARCHAR}, 
+      #{carparam5,jdbcType=VARCHAR}, #{carparam6,jdbcType=VARCHAR}, #{goodsDel,jdbcType=VARCHAR}, 
+      #{price,jdbcType=INTEGER}, #{lastdate,jdbcType=TIMESTAMP}, #{gorder,jdbcType=VARCHAR}, 
+      #{carDes,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="CarGoods" >
+    insert into car_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="imgId != null" >
+        img_id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="brandId != null" >
+        brand_id,
+      </if>
+      <if test="carName != null" >
+        car_name,
+      </if>
+      <if test="carparam1 != null" >
+        carparam1,
+      </if>
+      <if test="carparam2 != null" >
+        carparam2,
+      </if>
+      <if test="carparam3 != null" >
+        carparam3,
+      </if>
+      <if test="carparam4 != null" >
+        carparam4,
+      </if>
+      <if test="carparam5 != null" >
+        carparam5,
+      </if>
+      <if test="carparam6 != null" >
+        carparam6,
+      </if>
+      <if test="goodsDel != null" >
+        goods_Del,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="lastdate != null" >
+        lastdate,
+      </if>
+      <if test="gorder != null" >
+        gorder,
+      </if>
+      <if test="carDes != null" >
+        car_des,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="imgId != null" >
+        #{imgId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="carName != null" >
+        #{carName,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam1 != null" >
+        #{carparam1,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam2 != null" >
+        #{carparam2,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam3 != null" >
+        #{carparam3,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam4 != null" >
+        #{carparam4,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam5 != null" >
+        #{carparam5,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam6 != null" >
+        #{carparam6,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDel != null" >
+        #{goodsDel,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="lastdate != null" >
+        #{lastdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gorder != null" >
+        #{gorder,jdbcType=VARCHAR},
+      </if>
+      <if test="carDes != null" >
+        #{carDes,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="CarGoods" >
+    update car_goods
+    <set >
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="brandId != null" >
+        brand_id = #{brandId,jdbcType=INTEGER},
+      </if>
+      <if test="carName != null" >
+        car_name = #{carName,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam1 != null" >
+        carparam1 = #{carparam1,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam2 != null" >
+        carparam2 = #{carparam2,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam3 != null" >
+        carparam3 = #{carparam3,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam4 != null" >
+        carparam4 = #{carparam4,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam5 != null" >
+        carparam5 = #{carparam5,jdbcType=VARCHAR},
+      </if>
+      <if test="carparam6 != null" >
+        carparam6 = #{carparam6,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDel != null" >
+        goods_Del = #{goodsDel,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="lastdate != null" >
+        lastdate = #{lastdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gorder != null" >
+        gorder = #{gorder,jdbcType=VARCHAR},
+      </if>
+      <if test="carDes != null" >
+        car_des = #{carDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where car_id = #{carId,jdbcType=INTEGER}
+      and img_id = #{imgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="CarGoods" >
+    update car_goods
+    set type_id = #{typeId,jdbcType=INTEGER},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      car_name = #{carName,jdbcType=VARCHAR},
+      carparam1 = #{carparam1,jdbcType=VARCHAR},
+      carparam2 = #{carparam2,jdbcType=VARCHAR},
+      carparam3 = #{carparam3,jdbcType=VARCHAR},
+      carparam4 = #{carparam4,jdbcType=VARCHAR},
+      carparam5 = #{carparam5,jdbcType=VARCHAR},
+      carparam6 = #{carparam6,jdbcType=VARCHAR},
+      goods_Del = #{goodsDel,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      lastdate = #{lastdate,jdbcType=TIMESTAMP},
+      gorder = #{gorder,jdbcType=VARCHAR},
+      car_des = #{carDes,jdbcType=LONGVARCHAR}
+    where car_id = #{carId,jdbcType=INTEGER}
+      and img_id = #{imgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="CarGoods" >
+    update car_goods
+    set type_id = #{typeId,jdbcType=INTEGER},
+      brand_id = #{brandId,jdbcType=INTEGER},
+      car_name = #{carName,jdbcType=VARCHAR},
+      carparam1 = #{carparam1,jdbcType=VARCHAR},
+      carparam2 = #{carparam2,jdbcType=VARCHAR},
+      carparam3 = #{carparam3,jdbcType=VARCHAR},
+      carparam4 = #{carparam4,jdbcType=VARCHAR},
+      carparam5 = #{carparam5,jdbcType=VARCHAR},
+      carparam6 = #{carparam6,jdbcType=VARCHAR},
+      goods_Del = #{goodsDel,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      lastdate = #{lastdate,jdbcType=TIMESTAMP},
+      gorder = #{gorder,jdbcType=VARCHAR}
+    where car_id = #{carId,jdbcType=INTEGER}
+      and img_id = #{imgId,jdbcType=VARCHAR}
+  </update>
+</mapper>

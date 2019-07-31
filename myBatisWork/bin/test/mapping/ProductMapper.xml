@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="Product" >
+    <id column="did" property="did" jdbcType="INTEGER" />
+    <result column="productName" property="productname" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+   <!--  一对一 -->
+   <association property="user" resultMap="test.dao.UserMapper.BaseResultMap"></association>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    did, productName, uid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where did = #{did,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  select u.uid,u.uname,u.uaddress,p.did,p.productName,p.uid id
+	from user u,product p
+	where u.uid = p.uid
+	and p.did= #{0};
+  </select>
+  
+  <insert id="addProduct" parameterType="test.model.Product">
+  INSERT into product 
+  VALUES(#{did},#{productname},#{uid})
+  </insert>
+</mapper>

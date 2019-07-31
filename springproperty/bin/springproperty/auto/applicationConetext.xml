@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		    http://www.springframework.org/schema/beans/spring-beans.xsd">
+		    
+		    <bean id="dog" class="springproperty.auto.Dog">
+		   		 <property name="name" value="mydog"></property>
+		    </bean>
+		    
+		    <bean id="dog1" class="springproperty.auto.Dog">
+		   		 <property name="name" value="mydog"></property>
+		    </bean>
+		  <!--   自动装配，对应id，byname在body的类里找属性名，如果有，就在xml里找与属性名相同的id，并把属性值赋给xml里的body的属性 -->
+		  <!--   <bean id="body" class="springproperty.auto.Body" autowire="byName"></bean> -->
+		  
+		  <!--   自动装配，对应class，byType在body的类里找属性类型，如果有，就在xml里找与属性类型相同的class，并把属性值赋给xml里的body的属性 -->
+		    <bean id="body" class="springproperty.auto.Body" autowire="byType"></bean>
+</beans>

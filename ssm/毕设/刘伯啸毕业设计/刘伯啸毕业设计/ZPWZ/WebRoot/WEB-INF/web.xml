@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<servlet>
+   		<servlet-name>ViewWork</servlet-name>
+		<servlet-class>com.bs.zp.servlet.ViewWork</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+	  <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>SekLogin</servlet-name>
+	    <servlet-class>com.bs.zp.servlet.SekLogin</servlet-class>
+  	</servlet>
+  
+  <servlet-mapping>
+    <servlet-name>SekLogin</servlet-name>
+    <url-pattern>/SekLogin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CpyLogin</servlet-name>
+    <servlet-class>com.bs.zp.servlet.CpyLogin</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CpyLogin</servlet-name>
+    <url-pattern>/CpyLogin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SekAdd</servlet-name>
+    <servlet-class>com.bs.zp.servlet.SekAdd</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>SekAdd</servlet-name>
+    <url-pattern>/SekAdd</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginOut</servlet-name>
+    <servlet-class>com.bs.zp.servlet.LoginOut</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>LoginOut</servlet-name>
+    <url-pattern>/LoginOut</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindJobById</servlet-name>
+    <servlet-class>com.bs.zp.servlet.FindJobById</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>FindJobById</servlet-name>
+    <url-pattern>/FindJobById</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindAllJob</servlet-name>
+    <servlet-class>com.bs.zp.servlet.FindAllJob</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>FindAllJob</servlet-name>
+    <url-pattern>/FindAllJob</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ViewCpy</servlet-name>
+    <servlet-class>com.bs.zp.servlet.ViewCpy</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ViewCpy</servlet-name>
+    <url-pattern>/ViewCpy</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ViewJobWork</servlet-name>
+    <servlet-class>com.bs.zp.servlet.ViewJobWork</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ViewJobWork</servlet-name>
+    <url-pattern>/ViewJobWork</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindNewJob</servlet-name>
+    <servlet-class>com.bs.zp.servlet.FindNewJob</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>FindNewJob</servlet-name>
+    <url-pattern>/FindNewJob</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>com.bs.zp.servlet.Search</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ResAdd</servlet-name>
+    <servlet-class>com.bs.zp.servlet.ResAdd</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ResAdd</servlet-name>
+    <url-pattern>/ResAdd</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ViewResByCid</servlet-name>
+    <servlet-class>com.bs.zp.servlet.ViewResByCid</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ViewResByCid</servlet-name>
+    <url-pattern>/ViewResByCid</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ViewSekerById</servlet-name>
+    <servlet-class>com.bs.zp.servlet.ViewSekerById</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ViewSekerById</servlet-name>
+    <url-pattern>/ViewSekerById</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SekEditServlet</servlet-name>
+    <servlet-class>com.bs.zp.servlet.SekEditServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>SekEditServlet</servlet-name>
+    <url-pattern>/SekEditServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GRRegistAdd</servlet-name>
+    <servlet-class>com.bs.zp.servlet.GRRegistAdd</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>GRRegistAdd</servlet-name>
+    <url-pattern>/GRRegistAdd</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SekZLSerrvlet</servlet-name>
+    <servlet-class>com.bs.zp.servlet.SekZLSerrvlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>SekZLSerrvlet</servlet-name>
+    <url-pattern>/SekZLSerrvlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CpyZLSerrvlet</servlet-name>
+    <servlet-class>com.bs.zp.servlet.CpyZLSerrvlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CpyZLSerrvlet</servlet-name>
+    <url-pattern>/CpyZLSerrvlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CpyEditServlet</servlet-name>
+    <servlet-class>com.bs.zp.servlet.CpyEditServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CpyEditServlet</servlet-name>
+    <url-pattern>/CpyEditServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CheckServlet2</servlet-name>
+    <servlet-class>com.bs.zp.servlet.CheckServlet2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CheckServlet2</servlet-name>
+    <url-pattern>/CheckServlet2</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QYRegistAdd</servlet-name>
+    <servlet-class>com.bs.zp.servlet.QYRegistAdd</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>QYRegistAdd</servlet-name>
+    <url-pattern>/QYRegistAdd</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CpyZLSerrvlet2</servlet-name>
+    <servlet-class>com.bs.zp.servlet.CpyZLSerrvlet2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CpyZLSerrvlet2</servlet-name>
+    <url-pattern>/CpyZLSerrvlet2</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JobAddServlet</servlet-name>
+    <servlet-class>com.bs.zp.servlet.JobAddServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>JobAddServlet</servlet-name>
+    <url-pattern>/JobAddServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindWorkByNameServlet</servlet-name>
+    <servlet-class>com.bs.zp.servlet.FindWorkByNameServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>FindWorkByNameServlet</servlet-name>
+    <url-pattern>/FindWorkByNameServlet</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindAllSeker</servlet-name>
+    <servlet-class>com.bs.zp.servlet.FindAllSeker</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>FindAllSeker</servlet-name>
+    <url-pattern>/FindAllSeker</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FindSekerById</servlet-name>
+    <servlet-class>com.bs.zp.servlet.FindSekerById</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>FindSekerById</servlet-name>
+    <url-pattern>/FindSekerById</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+  	<description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ViewSekerById2</servlet-name>
+    <servlet-class>com.bs.zp.servlet.ViewSekerById2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ViewSekerById2</servlet-name>
+    <url-pattern>/ViewSekerById2</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+	<servlet-name>check</servlet-name>
+		<servlet-class>
+ 			com.bs.zp.servlet.CheckServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>check</servlet-name>
+		<url-pattern>/CheckServlet</url-pattern>
+	</servlet-mapping>
+  
+  	<servlet> 
+        <servlet-name>UploadServlet</servlet-name> 
+        <servlet-class>com.bs.zp.util.UploadServlet</servlet-class> 
+ 
+        <init-param> 
+            <param-name>filepath</param-name> 
+            <param-value>uploadFile</param-value> 
+        </init-param> 
+        <init-param> 
+            <param-name>temppath</param-name> 
+            <param-value>temp</param-value> 
+        </init-param> 
+    </servlet>      
+ 
+    <servlet-mapping> 
+        <servlet-name>UploadServlet</servlet-name> 
+        <url-pattern>/upload</url-pattern> 
+    </servlet-mapping>
+  	
+  	<servlet> 
+        <servlet-name>DownLoadServlet</servlet-name> 
+        <servlet-class>com.bs.zp.util.DownLoadServlet</servlet-class> 
+    </servlet>      
+ 
+    <servlet-mapping> 
+        <servlet-name>DownLoadServlet</servlet-name> 
+        <url-pattern>/downLoadServlet</url-pattern> 
+    </servlet-mapping>
+  	
+  	
+  	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

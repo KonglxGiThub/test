@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+<properties resource="config.properties">
+	<!-- 和properties里的配置一样 -->
+	<property name="username" value="root"/>
+</properties>
+
+<typeAliases>
+	<!-- 别名设置，在xml里用，type对应类的完整路径，alias是要起的别名 -->
+	<typeAlias type="test.model.Student" alias="Student"/>
+</typeAliases>
+
+<typeHandlers>
+	<typeHandler handler="test.handler.StringArrayTypeHandler" javaType="[Ljava.lang.String;" jdbcType="VARCHAR"/>
+</typeHandlers>
+
+<environments default="development">
+	<environment id="development">
+	<transactionManager type="JDBC" />
+	<dataSource type="POOLED">
+	<property name="driver" value="${driver.name}" />
+	<property name="url" value="${url}" />
+	<property name="username" value="${username}" />
+	<property name="password" value="123" />
+	</dataSource>
+	</environment>
+	<!-- 第二个开发环境 -->
+	<environment id="test">
+	<transactionManager type="JDBC" />
+	<dataSource type="POOLED">
+	<property name="driver" value="${driver.name}" />
+	<property name="url" value="${url}" />
+	<property name="username" value="${username}" />
+	<property name="password" value="123" />
+	</dataSource>
+	</environment>
+</environments>
+
+
+<mappers>
+	<mapper resource="test/mapping/StudentMapper.xml" />
+		<mapper resource="test/mapping/StudentMapper2.xml" />
+</mappers>
+</configuration>

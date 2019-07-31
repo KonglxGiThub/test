@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <!-- admin登录 -->
+  <servlet>
+  	<servlet-name>AdmLoginServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdmLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdmLoginServlet</servlet-name>
+  	<url-pattern>/AdmLoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>LogServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.LogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LogServlet</servlet-name>
+  	<url-pattern>/LogServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- admin管理员账号管理 -->
+  <servlet>
+  	<servlet-name>ViewAdminUserServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ViewAdminUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ViewAdminUserServlet</servlet-name>
+  	<url-pattern>/ViewAdminUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminNewUserServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminNewUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminNewUserServlet</servlet-name>
+  	<url-pattern>/AdminNewUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminEditUserServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminEditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminEditUserServlet</servlet-name>
+  	<url-pattern>/AdminEditUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminDelUserServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminDelUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminDelUserServlet</servlet-name>
+  	<url-pattern>/AdminDelUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- admin班级管理 -->
+  <servlet>
+  	<servlet-name>AdminViewClsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminViewClsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminViewClsServlet</servlet-name>
+  	<url-pattern>/AdminViewClsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminEditClsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminEditClsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminEditClsServlet</servlet-name>
+  	<url-pattern>/AdminEditClsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminDelClsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminDelClsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminDelClsServlet</servlet-name>
+  	<url-pattern>/AdminDelClsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminNewClsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminNewClsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminNewClsServlet</servlet-name>
+  	<url-pattern>/AdminNewClsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- admin用户管理 -->
+  <servlet>
+  	<servlet-name>AdminViewStuServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminViewStuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminViewStuServlet</servlet-name>
+  	<url-pattern>/AdminViewStuServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminEditStuServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminEditStuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminEditStuServlet</servlet-name>
+  	<url-pattern>/AdminEditStuServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminNewStuServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminNewStuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminNewStuServlet</servlet-name>
+  	<url-pattern>/AdminNewStuServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminDelStuServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminDelStuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminDelStuServlet</servlet-name>
+  	<url-pattern>/AdminDelStuServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>FileUploadServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.util.FileUploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FileUploadServlet</servlet-name>
+  	<url-pattern>/FileUploadServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>FileUploadEditServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.util.FileUploadEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FileUploadEditServlet</servlet-name>
+  	<url-pattern>/FileUploadEditServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>FileUploadImgEditServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.util.FileUploadImgEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FileUploadImgEditServlet</servlet-name>
+  	<url-pattern>/FileUploadImgEditServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>FileUploadFromEditServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.util.FileUploadFromEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FileUploadFromEditServlet</servlet-name>
+  	<url-pattern>/FileUploadFromEditServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminSelClsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminSelClsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminSelClsServlet</servlet-name>
+  	<url-pattern>/AdminSelClsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- admin新闻管理 -->
+  <servlet>
+  	<servlet-name>AdminViewNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminViewNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminViewNewsServlet</servlet-name>
+  	<url-pattern>/AdminViewNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminEditNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminEditNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminEditNewsServlet</servlet-name>
+  	<url-pattern>/AdminEditNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminDelNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminDelNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminDelNewsServlet</servlet-name>
+  	<url-pattern>/AdminDelNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminNewNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminNewNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminNewNewsServlet</servlet-name>
+  	<url-pattern>/AdminNewNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- admim留言管理 -->
+  <servlet>
+  	<servlet-name>AdminViewMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminViewMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminViewMessageServlet</servlet-name>
+  	<url-pattern>/AdminViewMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminNewMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminNewMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminNewMessageServlet</servlet-name>
+  	<url-pattern>/AdminNewMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>AdminDelMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.AdminDelMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminDelMessageServlet</servlet-name>
+  	<url-pattern>/AdminDelMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- class个人管理 -->
+  <servlet>
+  	<servlet-name>ClsUserServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsUserServlet</servlet-name>
+  	<url-pattern>/ClsUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ClsEditUserServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsEditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsEditUserServlet</servlet-name>
+  	<url-pattern>/ClsEditUserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- class用户管理 -->
+  <servlet>
+  	<servlet-name>ClsSearchStuServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsSearchStuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsSearchStuServlet</servlet-name>
+  	<url-pattern>/ClsSearchStuServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- class按班级新闻查看 -->
+  <servlet>
+  	<servlet-name>ClsViewNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsViewNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsViewNewsServlet</servlet-name>
+  	<url-pattern>/ClsViewNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ClsNewNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsNewNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsNewNewsServlet</servlet-name>
+  	<url-pattern>/ClsNewNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ClsDelNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsDelNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsDelNewsServlet</servlet-name>
+  	<url-pattern>/ClsDelNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ClsEditNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsEditNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsEditNewsServlet</servlet-name>
+  	<url-pattern>/ClsEditNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- cls留言管理 
+  <servlet>
+  	<servlet-name>ClsNewMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsNewMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsNewMessageServlet</servlet-name>
+  	<url-pattern>/ClsNewMessageServlet</url-pattern>
+  </servlet-mapping>
+  -->
+  <servlet>
+  	<servlet-name>ClsSearchMessageByStateServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsSearchMessageByStateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsSearchMessageByStateServlet</servlet-name>
+  	<url-pattern>/ClsSearchMessageByStateServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ClsSearchMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsSearchMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsSearchMessageServlet</servlet-name>
+  	<url-pattern>/ClsSearchMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ClsEditMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.ClsEditMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ClsEditMessageServlet</servlet-name>
+  	<url-pattern>/ClsEditMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- student增加信息 -->
+  <servlet>
+  	<servlet-name>StuNewMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuNewMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuNewMessageServlet</servlet-name>
+  	<url-pattern>/StuNewMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuSearchNewsServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuSearchNewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuSearchNewsServlet</servlet-name>
+  	<url-pattern>/StuSearchNewsServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  <!-- 普通学生通讯录管理 -->
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuViewServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuViewServlet</servlet-name>
+  	<url-pattern>/StuViewServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuImgEditServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuImgEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuImgEditServlet</servlet-name>
+  	<url-pattern>/StuImgEditServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuEditServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuEditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuEditServlet</servlet-name>
+  	<url-pattern>/StuEditServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuClsViewServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuClsViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuClsViewServlet</servlet-name>
+  	<url-pattern>/StuClsViewServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuSearchStuServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuSearchStuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuSearchStuServlet</servlet-name>
+  	<url-pattern>/StuSearchStuServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuSclViewServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuSclViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuSclViewServlet</servlet-name>
+  	<url-pattern>/StuSclViewServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuViewMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuViewMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuViewMessageServlet</servlet-name>
+  	<url-pattern>/StuViewMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>StuEditMessageServlet</servlet-name>
+  	<servlet-class>com.bs.xyl.servlet.StuEditMessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>StuEditMessageServlet</servlet-name>
+  	<url-pattern>/StuEditMessageServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

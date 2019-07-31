@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="main" extends="struts-default">
+	<!-- 定义通用结果 -->
+		<global-results>
+			<result name="fail">/error.jsp</result>
+		</global-results>
+	</package>
+	<package name="demo" extends="main" namespace="/demo">
+		<action name="test" class="struts2_0104_helloworld.TestAction">
+			<result name="suc1" type="chain">test1</result>
+		</action>
+		<action name="test1" class="struts2_0104_helloworld.TestAction" method="execute1">
+			<result name="suc">/welcome.jsp</result>
+		</action>
+	</package>
+	
+<include file="struts-demo2.xml"></include>
+
+</struts>

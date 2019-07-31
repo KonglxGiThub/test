@@ -1,0 +1,100 @@
+@charset utf-8;
+
+body{color:#666; font-size:12px;background:#e9e9e9; min-width: 1000px;}
+header{background:#323232;}
+header .hdCon{width:1000px;margin:0 auto; text-align:left;height:40px;}
+header .hdCon .logo a{background:url(../images/back_logo.jpg) no-repeat 0 center;_background:url(../images/back_logo-ie6.jpg) no-repeat center center;width:145px;height:40px;display:inline-block;}
+section{width:1000px;margin:0 auto 10px; text-align:left;background:#fff;zoom:1;}
+
+
+.banner{height:284px;background:url(/img/login/comLgBn.jpg) no-repeat center top #2e70c1; margin:0; text-align:left;}
+.banner .bannerBox{width:1000px; margin:0 auto; height:284px;position:relative; z-index:1;}
+.banner .txt{position:absolute;left:320px;top:20px;color:#fff;width:350px;font-size:12px; text-align:left;}
+.banner .txt p.t1{font-size:30px; font-family:"寰蒋闆呴粦","SimHei";}
+.banner .txt p.t1 em{font-size:40px;}
+.banner .txt p.t2{font-size:22px;margin-bottom:5px;font-family:"寰蒋闆呴粦","SimHei";} 
+.banner .txt p.t2 em{font-size:35px;}
+.banner .txt p.t2 span{font-size:24px;}
+.banner .txt p.t3{line-height:22px;}
+
+
+/*鐧诲綍*/
+.logBox{width:280px;height:300px; position:absolute;top:-10px;right:10px;background:#fff;box-shadow:0 0 3px #999;border:1px solid #e8e8e8;}
+.logBox .con{zoom:1;position:relative; z-index:2;height:301px;}
+.logBox .hd{height:45px;padding:10px 0 0 20px;}
+.logBox .hd h3{font-size:18px;font-family:"寰蒋闆呴粦","SimHei";height:30px;line-height:30px;float:left;display:inline;width:75px;}
+.logBox .bd{padding:0 25px 0;zoom:1;}
+.logBef .err{float:left;display:inline;width:170px;}
+.logBef .err i.jpFntWes{float:left;display:inline;font-size:15px;color:#db0303;margin:9px 2px 0 0;margin:7px 5px 0 0\9\0;*margin:7px 5px 0 0}
+.logBef .err p{float:left;display:inline;width:150px;color:#db0303;height:30px;line-height:30px;}
+.logBef .formText input.text{width:217px;height:35px;line-height:35px; color: #666;}
+.logBef .formText label.txtLabel{top:8px;top:9px \9\0;*top:9px; display: none; color: #999;}
+.logBef .formMod .tipTxt{height:37px;line-height:37px;}
+.logBef .formMod .yzImg{float:left;display:inline;margin:0 0 0 10px;}
+.logBef .formMod .yzImg img{height:37px;width:70px;}
+.logBef .logForm{ position:relative; z-index:1;height:205px;padding:0 25px 0;}
+.logBef .formBtn{ position:absolute;bottom:15px;left:25px;_bottom:10px;width:240px;}
+.logBef .formBtn a.btnsF16{font-size:12px;margin:0;padding:0 12px;text-align:center;width:80px;float:left;display:inline;}
+.logBef .formBtn a.btn3{margin:0 0 0 10px;background:none;border:0;}
+.logBef .formBtn a.btn4 span{font-size:16px;}
+.logBef .formBtn a.btn4 i.jpFntWes{ margin:0 5px 0 0;font-size:14px;cursor:pointer;}
+
+.leftTip{ position:absolute;width:400px;background:#fffbe8;border:1px solid #ffe6bb; z-index:3;left:-413px;top:40px; text-align:left;}
+.leftTip .bd{ position:relative;zoom:1; z-index:4;padding:15px;}
+.leftTip .bd p.tit{font-size:14px;font-weight:bold;margin-bottom:10px;}
+.leftTip .bd dl{margin-bottom:10px;}
+.leftTip .bd dl dt{height:24px;line-height:24px;font-weight:bold;}
+.leftTip .bd dl dd{line-height:22px;}
+.leftTip .bd b.arr{width:10px;height:19px;font-size:0;line-height:0; position:absolute;right:-10px;top:50%;margin-top:-8px;background:url(../images/common.gif) no-repeat -206px -1px;}
+
+.logAft .bd p{font-size:14px;line-height:24px;}
+.logAft .bd .btn a.btnsF16{margin:0;}
+.logAft .bd .btn a.btn1{margin:0 10px 0 0;}
+
+.logBox .bot{background:#f7f7f7;border-top:1px solid #dadada;height:30px;padding-top:9px; position:absolute;bottom:0;left:0;width:280px;overflow:hidden;}
+.logBox .bot i.jpFntWes{float:left;display:inline;margin:6px 0 0 25px;width:16px;font-size:14px;}
+.logBox .bot em{float:left;display:inline;height:24px;line-height:24px;font-size:16px;margin:0 8px 0 5px;width:120px;}
+.logBox .bot img{float:left;display:inline;margin:8px 0 0 0;}
+
+
+
+hgroup{margin-bottom:20px;}
+hgroup h2{height:100px;line-height:100px;font-size:26px;font-family:"寰蒋闆呴粦","SimHei"; text-align:center;margin-bottom:0;}
+
+.tab{}
+.tabT{width:780px;margin:0 auto;}
+.tabT ul li{float:left;display:inline;margin:0 45px;}
+.tabT ul li a{width:105px; text-align:center;height:25px;line-height:25px;padding:105px 0 0 0;display:inline-block;background:url(/img/login/comlogTab.jpg) no-repeat;font-family:"寰蒋闆呴粦","SimHei";font-size:16px; position:relative; z-index:1;}
+.tabT ul li.cu a{font-size:20px;}
+.tabT ul li a.lnk1{background-position:0 0;}
+.tabT ul li a.lnk2{background-position:-105px 0;}
+.tabT ul li a.lnk3{background-position:-210px 0;}
+.tabT ul li a.lnk4{background-position:-315px 0;}
+.tabT ul li.cu a.lnk1{background-position:-420px 0;color:#0af;}
+.tabT ul li.cu a.lnk2{background-position:-525px 0;color:#0af;}
+.tabT ul li.cu a.lnk3{background-position:-630px 0;color:#0af;}
+.tabT ul li.cu a.lnk4{background-position:-735px 0;color:#0af;}
+.tabT ul li a:hover{color:#0af;}
+.tabT ul li a b{background:url(../images/common.gif) no-repeat -174px 0;width:17px;height:9px;line-height:0;font-size:0; position:absolute;left:50%;bottom:-14px;margin-left:-8px;display:none;}
+.tabT ul li.cu a b{display:block;}
+.tab .tabC{margin:13px 0 0;}
+.tab .tabCon{zoom:1;background:#fffbe8;border:1px solid #ffe6bb;width:835px;margin:0 auto;}
+.tab .tabCon .txt{padding:10px 20px;zoom:1;font-size:12px;line-height:25px;}
+
+
+
+
+.comLst{padding:0 35px;zoom:1;}
+.comLst ul li{float:left;display:inline;margin:0 5px 10px;}
+.comLst ul li img{ width: 120px; height: 42px;}
+
+.ryLst{}
+.ryLst{width:944px;margin:0 auto;}
+.ryLst ul li{float:left;display:inline;margin:0 21px 15px;}
+.ryLst ul li img{width:181px;height:125px;border:5px solid #f1f1f1;}
+
+/*椤佃剼*/
+footer{padding:15px 0;background:#fff;font-size:12px;zoom:1;line-height:24px;color:#666;}
+footer .footerNav{color:#999;}
+footer .footerNav a{margin:0 10px;color:#666;}
+footer .footerNav a:hover{color:#0af;}

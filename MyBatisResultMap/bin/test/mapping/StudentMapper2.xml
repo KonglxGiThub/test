@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.dao.StudentMapper2" >
+  <resultMap id="BaseResultMap" type="Student" >
+  		<!-- 需要在student里写带有id和name的属性 -->
+	  <constructor>
+	  	<idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+	  	<arg column="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	  </constructor>
+	  
+	<!--   有构造器实现 -->
+    <!--  <id column="id" property="id" jdbcType="INTEGER" /> -->
+    
+    <!-- <result column="name" property="name" jdbcType="VARCHAR" /> -->
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="classid" property="classid" jdbcType="INTEGER" />
+    <result column="likes" property="likes" jdbcType="VARCHAR" />
+     <association property="clazz" javaType="test.model.Clazz" 
+     select="test.dao.ClazzMapper.selectByPrimaryKey" column="classid">
+ 	 <!--<id property="id" column="cid"></id>
+     <result property="classname" column="cname"/> -->
+     </association>
+   <!--  <association property="clazz" javaType="test.model.Clazz">
+        <id property="id" column="cid"></id>
+        <result property="classname" column="cname"/>
+    </association> -->
+    <!-- clazz对应student里的Clazz属性，resultMap对应clazzMapper.xml的路径 -->
+<!--     <association property="clazz" resultMap="test.dao.ClazzMapper.BaseResultMap">
+    </association> -->
+  
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, sex, birthday, age, classid, likes
+  </sql>
+
+  <select id="selectStudentAndClassName" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  select *
+  from student s,clazz c 
+  where s.classid=c.id 
+  and s.id=#{id} 
+  </select>
+  
+  
+  
+  
+  
+  
+  
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from student
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="test.model.Student" >
+    insert into student (id, name, sex, 
+      birthday, age, classid, 
+      likes)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=DATE}, #{age,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{likes,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="test.model.Student" >
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="likes != null" >
+        likes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="likes != null" >
+        #{likes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="test.model.Student" >
+    update student
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="likes != null" >
+        likes = #{likes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="test.model.Student" >
+    update student
+    set name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      age = #{age,jdbcType=INTEGER},
+      classid = #{classid,jdbcType=INTEGER},
+      likes = #{likes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

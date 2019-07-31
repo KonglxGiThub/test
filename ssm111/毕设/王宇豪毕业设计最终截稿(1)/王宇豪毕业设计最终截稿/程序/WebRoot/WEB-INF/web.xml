@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	 
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.action.AdminServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SystemServlet</servlet-name>
+    <servlet-class>com.action.SystemServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MenuServlet</servlet-name>
+    <servlet-class>com.action.MenuServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CommonServlet</servlet-name>
+    <servlet-class>com.action.CommonServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FriendLinkServlet</servlet-name>
+    <servlet-class>com.action.FriendLinkServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GuestBookServlet</servlet-name>
+    <servlet-class>com.action.GuestBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ADServlet</servlet-name>
+    <servlet-class>com.action.ADServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SubsidiaryServlet</servlet-name>
+    <servlet-class>com.action.SubsidiaryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AfficheServlet</servlet-name>
+    <servlet-class>com.action.AfficheServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>IndexCommonServlet</servlet-name>
+    <servlet-class>com.action.IndexCommonServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NewsServlet</servlet-name>
+    <servlet-class>com.action.NewsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PicServlet</servlet-name>
+    <servlet-class>com.action.PicServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CommentsServlet</servlet-name>
+    <servlet-class>com.action.CommentsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MemberServlet</servlet-name>
+    <servlet-class>com.action.MemberServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.action.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MemberManageServlet</servlet-name>
+    <servlet-class>com.action.MemberManageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HouseServlet</servlet-name>
+    <servlet-class>com.action.HouseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>InfoClassServlet</servlet-name>
+    <servlet-class>com.action.InfoClassServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OutHouseServlet</servlet-name>
+    <servlet-class>com.action.OutHouseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HouseManageServlet</servlet-name>
+    <servlet-class>com.action.HouseManageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JobServlet</servlet-name>
+    <servlet-class>com.action.JobServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JobManageServlet</servlet-name>
+    <servlet-class>com.action.JobManageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ReportServlet</servlet-name>
+    <servlet-class>com.action.ReportServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OldServlet</servlet-name>
+    <servlet-class>com.action.OldServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ResumeServlet</servlet-name>
+    <servlet-class>com.action.ResumeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BedServlet</servlet-name>
+    <servlet-class>com.action.BedServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CaiWuServlert</servlet-name>
+    <servlet-class>com.action.CaiWuServlert</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>YaoServlet</servlet-name>
+    <servlet-class>com.action.YaoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PayServlet</servlet-name>
+    <servlet-class>com.action.PayServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DepServlet</servlet-name>
+    <servlet-class>com.action.DepServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	 
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/Admin.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SystemServlet</servlet-name>
+    <url-pattern>/System.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MenuServlet</servlet-name>
+    <url-pattern>/Menu.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CommonServlet</servlet-name>
+    <url-pattern>/Common.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FriendLinkServlet</servlet-name>
+    <url-pattern>/FriendLink.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GuestBookServlet</servlet-name>
+    <url-pattern>/GuestBook.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ADServlet</servlet-name>
+    <url-pattern>/AD.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SubsidiaryServlet</servlet-name>
+    <url-pattern>/Subsidiary.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AfficheServlet</servlet-name>
+    <url-pattern>/Affiche.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IndexCommonServlet</servlet-name>
+    <url-pattern>/IndexCommon.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewsServlet</servlet-name>
+    <url-pattern>/News.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PicServlet</servlet-name>
+    <url-pattern>/Pic.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CommentsServlet</servlet-name>
+    <url-pattern>/Comments.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MemberServlet</servlet-name>
+    <url-pattern>/Member.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/Login.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MemberManageServlet</servlet-name>
+    <url-pattern>/MemberManage.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HouseServlet</servlet-name>
+    <url-pattern>/House.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InfoClassServlet</servlet-name>
+    <url-pattern>/InfoClass.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OutHouseServlet</servlet-name>
+    <url-pattern>/OutHouse.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HouseManageServlet</servlet-name>
+    <url-pattern>/HouseManage.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>JobServlet</servlet-name>
+    <url-pattern>/Job.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>JobManageServlet</servlet-name>
+    <url-pattern>/JobManage.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReportServlet</servlet-name>
+    <url-pattern>/Report.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OldServlet</servlet-name>
+    <url-pattern>/Old.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ResumeServlet</servlet-name>
+    <url-pattern>/Resume.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BedServlet</servlet-name>
+    <url-pattern>/Bed.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CaiWuServlert</servlet-name>
+    <url-pattern>/CaiWu.shtml</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>YaoServlet</servlet-name>
+    <url-pattern>/YaoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PayServlet</servlet-name>
+    <url-pattern>/PayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepServlet</servlet-name>
+    <url-pattern>/DepServlet</url-pattern>
+  </servlet-mapping>
+	 
+</web-app>

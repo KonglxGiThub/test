@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		<!-- 静态工厂  id是商品的类名，class对应工厂类的路径，方法是工厂类里的方法 -->
+ 		<!-- <bean id="product" class="springproperty.demo.StaticFactory" factory-method="createProduct"></bean>  -->
+       
+		<!--    普通工厂模式 ,先实例化工厂，在调用工厂 ，factory-bean="customFactory"和工厂的id相同    -->
+		<bean id="customFactory" class="springproperty.demo.CustomFactory"></bean>
+		<bean id="product" factory-bean="customFactory" factory-method="getProduct"></bean>
+	
+	</beans>

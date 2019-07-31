@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.etc.admin.daos.TImgMapper">
+	<resultMap id="BaseResultMap" type="TImg">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="img_id" property="imgId" jdbcType="VARCHAR" />
+		<result column="img_path" property="imgPath" jdbcType="VARCHAR" />
+		<result column="img_name" property="imgName" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, img_id, img_path, img_name
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from t_img
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from t_img
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="TImg">
+		insert into t_img (img_id, img_path,
+		img_name)
+		values (#{imgId,jdbcType=VARCHAR}, #{imgPath,jdbcType=VARCHAR},
+		#{imgName,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="TImg">
+		insert into t_img
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="imgId != null">
+				img_id,
+			</if>
+			<if test="imgPath != null">
+				img_path,
+			</if>
+			<if test="imgName != null">
+				img_name,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="imgId != null">
+				#{imgId,jdbcType=VARCHAR},
+			</if>
+			<if test="imgPath != null">
+				#{imgPath,jdbcType=VARCHAR},
+			</if>
+			<if test="imgName != null">
+				#{imgName,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="TImg">
+		update t_img
+		<set>
+			<if test="imgId != null">
+				img_id = #{imgId,jdbcType=VARCHAR},
+			</if>
+			<if test="imgPath != null">
+				img_path = #{imgPath,jdbcType=VARCHAR},
+			</if>
+			<if test="imgName != null">
+				img_name = #{imgName,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="TImg">
+		update t_img
+		set img_id = #{imgId,jdbcType=VARCHAR},
+		img_path = #{imgPath,jdbcType=VARCHAR},
+		img_name = #{imgName,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="selectByImgId" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from t_img
+		where img_id = #{imgId,jdbcType=VARCHAR}
+	</select>
+</mapper>

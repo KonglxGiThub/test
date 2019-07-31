@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        		<!-- 上面是固定写法，手动配置文件的方式 -->
+
+	<bean id="dog" class="springtest.Dog">
+		<!-- 	给dao类的有参数的构造器赋值，0表示第一个参数； -->
+		<constructor-arg index="0" value="金毛"></constructor-arg>
+	</bean>  
+	<bean id="dog1" class="springtest.Dog">
+	
+	</bean> 
+	 
+	<bean id="body" class="springtest.Body">
+<!-- 根据index通过构造器，为name基本类型属性赋值，为狗的引用类型赋值 ，ref对应bean的id-->
+	<!-- <constructor-arg index="0" value="路飞"></constructor-arg>
+	<constructor-arg index="1" ref="dog"></constructor-arg> -->
+	<!-- 	通过类的属性为构造器赋值，为name基本类型属性赋值，为狗的引用类型赋值 ，ref对应bean的id-->
+	<constructor-arg name="name" value="路飞"></constructor-arg>
+	<constructor-arg name="dog" ref="dog"></constructor-arg>
+	</bean>   
+	
+</beans>

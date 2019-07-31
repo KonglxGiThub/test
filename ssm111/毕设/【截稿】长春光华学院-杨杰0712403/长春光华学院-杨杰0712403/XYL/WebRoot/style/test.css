@@ -1,0 +1,35 @@
+* {
+     margin:0;
+     padding:0;
+}
+body {
+	background:url(../image/cangku.jpg) no-repeat left top;
+	text-align: center;
+	font-size:12px;
+	background-repeat:repeat;
+	}
+#bian {
+	width:480px;
+	height:400px;
+	margin-top: 200px;
+	margin-left: auto;
+	margin-right: auto; 
+	}
+	
+
+
+.b1,.b2,.b3,.b4,.b1b,.b2b,.b3b,.b4b,.b{display:block;overflow:hidden;}
+.b1,.b2,.b3,.b1b,.b2b,.b3b{height:1px;}
+.b2,.b3,.b4,.b2b,.b3b,.b4b,.b{border-left:1px solid #999;border-right:1px solid #999;}
+.b1,.b1b{margin:0 5px;background:#999;}
+.b2,.b2b{margin:0 3px;border-width:2px;}  
+.b3,.b3b{margin:0 2px;}
+.b4,.b4b{height:2px;margin:0 1px;}
+.d1{background-color:#FFFFFF;filter: Alpha(opacity=50);-moz-opacity:0.5;opacity:0.5;background:#FFFFFF;}
+.k {height:300px;}
+
+background:#F7F8F9;
+
+background-color:#FFFFFF;filter:alpha(opacity=80);
+
+filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#4c000000', EndColorStr='#4c000000')

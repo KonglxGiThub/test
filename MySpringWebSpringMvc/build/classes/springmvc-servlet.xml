@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+						
+<!-- 请求映射根据bean的name属性匹配的配置HandlerMapping，urlHandlerMapping 默认BeanNameURLHandlerMapping，无需配置
+	<bean id="beanNameUrlHandlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+	</bean>
+	
+	定义controller ,自带的,不能存取值
+	<bean name="/index.action" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	实现简单页面跳转，name属性固定，value表示跳转的页面的welcome.jsp
+		<property name="viewName" value="welcome"></property>
+	</bean>
+	
+	zi定义controller ,自己的,能存取值	
+	<bean name="/login.action" class="xin.controllertest.LoginController"></bean>	 -->		
+						
+						
+						
+						
+						
+	<!-- 请求映射 -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >	
+	<!--定义映射处理器： 按类别（如：HandlerMapping）寻找所有不需要id -->
+		<property name="mappings">
+		<!-- 属性mappings是一个映射列表 键值对 key=访问路径 value（控制器id）= id为StartController的bean -->
+		<!-- key对应访问路径controller的bean的id -->
+			<props>
+				<!-- indexController对应定义controller里的id，key="/index.action"对应xml里的 <url-pattern>*.action</url-pattern> -->
+				<prop key="/index.action">indexController</prop>
+				<prop key="/login.action">loginController</prop>
+			</props>
+		</property>
+	</bean>
+
+	
+	<!-- 定义controller ,自带的,不能存取值-->
+	<bean id="indexController" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	<!-- 实现简单页面跳转，name属性固定，value表示跳转的页面的welcome.jsp -->
+		<property name="viewName" value="welcome"></property>
+	</bean>
+	
+	<!-- zi定义controller ,自己的,能存取值-->
+	<bean id="loginController" class="xin.controllertest.LoginController"></bean>
+	
+	
+	
+	<!-- 3、视图解析器jsp 内部资源视图解析器 /WEB-INF/pages/index.jsp -->
+	<!-- prefix,suffix分别对应viewname和welcome -->
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+		
+	
+</beans>
+
+
+
+
+
+
+
+
+
+

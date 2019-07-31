@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="demo" extends="struts-default" namespace="/demo">
+		<action name="test" class="struts2_0104_helloworld.TestAction">
+			<result name="suc1" type="redirectAction">
+			<!-- 通过这个action调用另一个package的namespace名和action -->
+				<param name="namespace">/test</param>
+				<param name="actionName">test1</param>
+			</result>
+		</action>
+
+		 <action name="login" class="struts2_0104_helloworld.TestAction" method="login"> 
+			<result name="welcome">/welcome.jsp</result> <result name="error">/error.jsp</result> 
+			</action>
+	</package>
+	<package name="test" extends="struts-default" namespace="/test">
+		<action name="test1" class="struts2_0104_helloworld.TestAction"
+			method="execute1">
+			<result name="suc">/welcome.jsp</result>
+		</action>
+	</package>
+</struts>

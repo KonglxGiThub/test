@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+         <!--连接池的配置，这个name和calss不可以动，固定的 -->
+       <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+			<property name="driverClass" value="oracle.jdbc.OracleDriver"/>
+			<property name="user" value="Xin"/>
+			<property name="password" value="xin"/>
+			<property name="initialPoolSize" value="3"/>
+			<property name="maxPoolSize" value="10"/>
+			<property name="minPoolSize" value="1"/>
+			<property name="acquireIncrement" value="3"/>
+			<property name="maxIdleTime" value="60"/>
+		</bean>
+		<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="ds"></property>
+		</bean>
+		
+		<bean id="daoUserImpl" class="springmvcwork.xin.dao.DaoUserImpl">
+			<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+		</bean>
+		
+		<bean id="serviceUserImpl" class="springmvcwork.xin.service.ServiceUserImpl">
+			<property name="dao" ref="daoUserImpl"></property>
+		</bean>
+		
+		<bean id="addUserAction" class="springmvcwork.xin.action.AddUserAction"></bean>
+		<!-- 请求映射 -->
+	<!-- 根据bean的name属性匹配的配置HandlerMapping，urlHandlerMapping 默认BeanNameURLHandlerMapping，无需配置 -->
+	<bean id="beanNameUrlHandlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+	</bean>
+	
+		<!-- 定义controller ,自带的,不能存取值-->
+	<bean name="/login.action" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="login"></property>
+	</bean>
+	
+	<bean name="/success.action" class="springmvcwork.xin.action.AddUserAction"></bean>
+		
+		<!-- 3、视图解析器jsp 内部资源视图解析器 /WEB-INF/pages/index.jsp -->
+	<!-- prefix,suffix分别对应viewname和welcome -->
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+		
+		
+</beans>						

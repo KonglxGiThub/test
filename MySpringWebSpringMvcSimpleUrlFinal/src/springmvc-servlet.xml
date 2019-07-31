@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 请求映射 -->
+	<!--定义映射处理器： 按类别（如：HandlerMapping）寻找所有不需要id-->
+	<!-- 属性mappings是一个映射列表 键值对 key=访问路径 value（控制器id）= id为StartController的bean -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" >
+		<property name="mappings">
+			<props>
+			<!-- 访问路径必须一致index.action -->
+				<prop key="/index.action">index11Controller</prop>
+				<prop key="/login.action">login11Controller</prop>
+			</props>
+		</property>	
+	</bean>
+	
+
+	<!-- 定义controller ,自带的,不能存取值 -->
+	<bean id="index11Controller" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	<!-- 实现简单页面跳转，name属性固定，value表示跳转的页面的welcome.jsp -->
+		<property name="viewName" value="welcome"></property>
+	</bean>
+	
+	
+	<!-- 定义controller ,自己定义的,可存取值 -->
+	<bean id="login11Controller" class=" xin.SpringMvcController.LoginController"></bean>
+
+	<!-- 3、视图解析器jsp 内部资源视图解析器 /WEB-INF/pages/index.jsp -->
+	<!-- prefix是前缀，suffix是后缀 -->
+
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+</beans>

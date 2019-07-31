@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+      
+         <!--连接池的配置，这个name和calss不可以动，固定的 -->
+       <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+			<property name="driverClass" value="oracle.jdbc.OracleDriver"/>
+			<property name="user" value="Xin"/>
+			<property name="password" value="xin"/>
+			<property name="initialPoolSize" value="3"/>
+			<property name="maxPoolSize" value="10"/>
+			<property name="minPoolSize" value="1"/>
+			<property name="acquireIncrement" value="3"/>
+			<property name="maxIdleTime" value="60"/>
+		</bean>
+		<!-- JdbcTemplate配置，与事物通知不冲突 -->
+		<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="ds"></property>
+		</bean> 
+		<bean id ="empsDao" class="transaction.dao.EmpsDao">
+			<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+		</bean>
+		<bean id="emps" class="transaction.service.EmpsService">
+			<property name="dao" ref="empsDao"></property>
+			
+		</bean>
+		<!-- 声明事务管理器 ，class不能改-->
+		<bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="ds"></property>
+		</bean>
+		<!-- 设置事物通知,manager对应上面id -->
+		<tx:advice id="ta" transaction-manager="dataSourceTransactionManager">
+			<tx:attributes>
+				<tx:method name="add*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+				<tx:method name="update*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+				<tx:method name="delete*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>
+				<tx:method name="find*"  read-only="false"/>
+				<tx:method name="sel*" read-only="false"/>
+			</tx:attributes>
+		</tx:advice>
+		<!-- 设置事物切入点 -->
+		<aop:config>
+			<aop:pointcut expression="within(transaction.service.*)" id="servicePoint"/>
+			<aop:advisor advice-ref="ta" pointcut-ref="servicePoint"/>
+		</aop:config>
+		
+
+		
+        
+</beans>

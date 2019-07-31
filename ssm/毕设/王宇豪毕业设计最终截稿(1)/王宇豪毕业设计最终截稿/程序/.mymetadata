@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="shff"
+  id="myeclipse.1241090480437"
+  context-root="/shff"
+  j2ee-spec="1.4"
+  archive="shff.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

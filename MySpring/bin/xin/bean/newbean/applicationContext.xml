@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <!-- 上面是固定写法，手动配置文件的方式 -->
+		<!-- id是唯一标，class是该类的路径 -->
+		<!-- constructor-arg标签：设定初始化bean的构造方法参数
+			index：构造方法参数位置，从0开始。
+			value：基本类型。
+			ref引用类型
+			spring根据constructor-arg标签判断调用哪个构造器初始化对象实例。 -->
+		<bean id="dog1" class="xin.bean.newbean.Dog">
+			<constructor-arg index="0" value="金毛"></constructor-arg>
+		</bean>
+		
+		
+		<bean id="boy1" class="xin.bean.newbean.Boy">
+			<constructor-arg index="0" value="tom"></constructor-arg>
+			<!-- 根据index通过构造器，为name基本类型属性赋值，为狗的引用类型赋值 ，ref对应bean的id-->
+			<constructor-arg index="1" ref="dog1"></constructor-arg>
+		</bean>
+		
+		
+		
+		<bean id="boy2" class="xin.bean.newbean.Boy">
+		<!-- 	通过类的属性为构造器赋值，为name基本类型属性赋值，为狗的引用类型赋值 ，ref对应bean的id-->
+			<constructor-arg name="name" value="tom"></constructor-arg>
+			<constructor-arg name="dog" ref="dog1"></constructor-arg>
+		</bean>
+
+        
+	
+	
+</beans>

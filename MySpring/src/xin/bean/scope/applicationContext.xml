@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		    http://www.springframework.org/schema/beans/spring-beans.xsd">
+		    
+		<!--    scope="prototype" 多实例 ，默认单实例singleton,懒加载lazy-init="default"，默认false,懒加载只对单实例有效-->
+<!--        <bean id="dog1" class="xin.bean.scope.Dog"  lazy-init="default" init-method="begin" destroy-method="over" >
+      	 <property name="name" value="博美"></property>
+       </bean>  -->
+       
+		<!--        通过set和get赋值没有set和get不好用 -->
+<!--        <bean id="body" class="xin.bean.scope.Body"  lazy-init="true">
+      	 <property name="dog" ref="dog1"></property>
+      	 <property name="name" value="tom"></property>
+       </bean>  -->
+       <!--  <bean id="dog" class="xin.bean.scope.Dog"  lazy-init="true"></bean>  -->
+       
+       
+ 	   	<!--    内部bean，属性包含bean -->
+        <bean id="body" class="xin.bean.scope.Body"  lazy-init="true">
+    				 <!--   狗赋值 -->
+	      	 <property name="dog">  
+	      		 	<bean id="dog1" class="xin.bean.scope.Dog">
+	      			 	<property name="name" value="狮子"></property>
+	      	 		</bean>
+	      	 </property>
+	      			 <!-- 人赋值 -->
+	      	 <property name="name" value="tom">
+	      	 </property>
+       </bean>
+       
+       
+       
+       
+        </beans>

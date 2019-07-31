@@ -1,0 +1,108 @@
+/*jpFntWes*/
+@font-face {
+	font-family: 'jpFntWes';
+	src:url('http://cdn597.b0.upaiyun.com/css/font/fontawesome.eot');
+	src:url('http://cdn597.b0.upaiyun.com/css/font/fontawesome.eot?#iefix') format('embedded-opentype'),
+		url('http://cdn597.b0.upaiyun.com/css/font/fontawesome.woff') format('woff'),
+		url('http://cdn597.b0.upaiyun.com/css/font/fontawesome.ttf') format('truetype'),
+		url('http://cdn597.b0.upaiyun.com/css/font/fontawesome.svg#fontawesome') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.jpFntWes{
+	font-family:'jpFntWes';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	font-size:22px;line-height:1;
+}
+
+
+.jpFntWes b{font-weight:normal;}
+.jpFntWes i{font-style:normal;}
+.jpFntWes a{display:inline-block;}
+
+
+/*jpIconMoon*/
+@font-face {
+	font-family: 'jpIconMoon';
+	src:url('http://cdn597.b0.upaiyun.com/css/font/icomoon.eot');
+	src:url('http://cdn597.b0.upaiyun.com/css/font/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('http://cdn597.b0.upaiyun.com/css/font/icomoon.woff') format('woff'),
+		url('http://cdn597.b0.upaiyun.com/css/font/icomoon.ttf') format('truetype'),
+		url('http://cdn597.b0.upaiyun.com/css/font/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.jpIconMoon{
+	font-family:'jpIconMoon';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	font-size:22px;line-height:1;
+}
+
+.jpIconMoon b{font-weight:normal;}
+.jpIconMoon i{font-style:normal;}
+.jpIconMoon a{display:inline-block;}
+
+
+/*jpLogo*/
+@font-face {
+    font-family: 'jpLogo';
+    src: url('http://cdn597.b0.upaiyun.com/css/font/jpLogo-webfont.eot');
+    src: url('http://cdn597.b0.upaiyun.com/css/font/jpLogo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cdn597.b0.upaiyun.com/css/font/jpLogo-webfont.woff') format('woff'),
+         url('http://cdn597.b0.upaiyun.com/css/font/jpLogo-webfont.ttf') format('truetype'),
+         url('http://cdn597.b0.upaiyun.com/css/font/jpLogo-webfont.svg#jpLogoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.jpLogo{
+	font-family:'jpLogo';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	font-size:22px;line-height:1;
+}
+
+.jpLogo b{font-weight:normal;}
+.jpLogo i{font-style:normal;}
+.jpLogo a{display:inline-block;}
+
+.logoPt {display:inline-block;width:184px;height:48px;overflow:hidden; position:relative; z-index:1;}
+.logoPt i{ position:absolute;color:#df433c;font-size:140px;top:-50px;left:6px;}
+.logoPt em{ position:absolute;color:#003d88;font-size:130px;top:-42px;left:110px;}
+.logoPt b{ position:absolute;color:#201b18;font-size:118px;top:-50px;left:103px;}
+
+
+/*ecoico*/
+@font-face {
+	font-family: 'ecoico';
+	src:url('http://cdn597.b0.upaiyun.com/css/font/ecoico.eot');
+	src:url('http://cdn597.b0.upaiyun.com/css/font/ecoico.eot?#iefix') format('embedded-opentype'),
+		url('http://cdn597.b0.upaiyun.com/css/font/ecoico.woff') format('woff'),
+		url('http://cdn597.b0.upaiyun.com/css/font/ecoico.ttf') format('truetype'),
+		url('http://cdn597.b0.upaiyun.com/css/font/ecoico.svg#ecoico') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.ecoico{
+	font-family:'ecoico';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	font-size:22px;line-height:1;
+}
+
+.ecoico b{font-weight:normal;}
+.ecoico i{font-style:normal;}
+.ecoico a{display:inline-block;}

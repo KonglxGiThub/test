@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="User" >
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="uaddress" property="uaddress" jdbcType="VARCHAR" />
+    <!-- 一对多 -->
+    <collection property="productList" ofType="Product">
+    	    <id column="did" property="did" jdbcType="INTEGER" />
+		    <result column="productName" property="productname" jdbcType="VARCHAR" />
+		    <result column="id" property="uid" jdbcType="INTEGER" />
+    </collection>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    uid, uname, uaddress
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectUserAndProductByID" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+	  select u.uid,u.uname,u.uaddress,p.did,p.productName,p.uid id
+		from user u,product p
+		where u.uid = p.uid
+		and u.uid = #{0};
+  </select>
+</mapper>

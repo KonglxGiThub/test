@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+       <!--  AOP的xml配置文件 -->
+
+       <!--连接池的配置，这个name和calss不可以动，固定的 -->
+       <bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+			<property name="driverClass" value="oracle.jdbc.OracleDriver"/>
+			<property name="user" value="Xin"/>
+			<property name="password" value="xin"/>
+			<property name="initialPoolSize" value="3"/>
+			<property name="maxPoolSize" value="10"/>
+			<property name="minPoolSize" value="1"/>
+			<property name="acquireIncrement" value="3"/>
+			<property name="maxIdleTime" value="60"/>
+		</bean>
+		<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="ds"></property>
+		</bean>
+		<bean id="controllerImpl" class="springJdbcMvc.controller.ControllerImpl">
+       	<property name="serviceImpl" ref="serviceImpl"></property>
+       </bean>
+       <bean id="serviceImpl" class="springJdbcMvc.service.ServiceImpl">
+       <property name="dao" ref="daoImpl"></property>
+       </bean>
+		<!-- <bean id="daoimpl" class="springJdbcMvc.dao.DaoImpl">
+        		 <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+      		 </bean>  -->
+		
+		<bean id="daoImpl" class="springJdbcMvc.dao.DaoImpl">
+			<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+		</bean>
+		
+       
+</beans>

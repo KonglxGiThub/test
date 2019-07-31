@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.jdbc.sqlserver.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:microsoft:sqlserver://localhost:1433;databaseName=db_jkd">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="sa"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/model/TAdmin.hbm.xml</value>
+				<value>com/model/TRenyuan.hbm.xml</value>
+				<value>com/model/TTijian.hbm.xml</value>
+				<value>com/model/TJibing.hbm.xml</value></list>
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="loginService" class="com.service.loginService">
+		<property name="adminDAO">
+			<ref bean="TAdminDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="TAdminDAO" class="com.dao.TAdminDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="adminAction" class="com.action.adminAction" scope="prototype">
+		<property name="adminDAO">
+			<ref bean="TAdminDAO" />
+		</property>
+	</bean>
+	
+	
+	
+	<bean id="TRenyuanDAO" class="com.dao.TRenyuanDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="renyuanAction" class="com.action.renyuanAction" scope="prototype">
+		<property name="renyuanDAO">
+			<ref bean="TRenyuanDAO" />
+		</property>
+	</bean>
+	
+	
+	<bean id="TTijianDAO" class="com.dao.TTijianDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="tijianAction" class="com.action.tijianAction" scope="prototype">
+		<property name="tijianDAO">
+			<ref bean="TTijianDAO" />
+		</property>
+		<property name="renyuanDAO">
+			<ref bean="TRenyuanDAO" />
+		</property>
+	</bean>
+	
+	
+	<bean id="TJibingDAO" class="com.dao.TJibingDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="jibingAction" class="com.action.jibingAction" scope="prototype">
+		<property name="jibingDAO">
+			<ref bean="TJibingDAO" />
+		</property>
+		<property name="renyuanDAO">
+			<ref bean="TRenyuanDAO" />
+		</property>
+	</bean>
+	
+	</beans>

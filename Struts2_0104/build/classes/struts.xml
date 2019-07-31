@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- xml的名必须是struts，都是小写的 -->
+<package name="demo" extends="struts-default">
+	<action name="welcome" class="Struts2_0104.action.TestAction">
+		<result name="welcome" type="redirectAction">welcome1</result>
+	</action>
+	
+	<action name="welcome1" class="Struts2_0104.action.TestAction" method="welcome">
+		<result name="welcome">welcome.jsp</result>
+	</action>
+	
+	<action name="useraction" class="Struts2_0104.action.TestAction" method="success">
+		<result name="success">success.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+</package>
+</struts>

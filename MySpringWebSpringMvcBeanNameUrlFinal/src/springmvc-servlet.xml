@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 请求映射 -->
+	<!-- 1、配置urlHandlerMapping 默认BeanNameURLHandlerMapping，无需配置 -->
+	<bean id="beanNameUrlHandlerMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<!-- 设置优先级，值越小优先级越高 -->
+		<!-- <property name="order" value="1" /> -->
+	</bean>
+
+	<!-- 定义controller ,自带的,不能存取值 -->
+	<bean name="/index.action" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+	<!-- 实现简单页面跳转，name属性固定，value表示跳转的页面的welcome.jsp -->
+		<property name="viewName" value="welcome"></property>
+	</bean>
+	
+	
+	<!-- 定义controller ,自己定义的,可存取值 -->
+	<bean name="/login.action" class="xin.SpringMvcController.LoginController"></bean>
+
+<!-- 3、视图解析器jsp 内部资源视图解析器 /WEB-INF/pages/index.jsp -->
+<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/jsp/" />
+	<property name="suffix" value=".jsp" />
+</bean>
+
+
+</beans>

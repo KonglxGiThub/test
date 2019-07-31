@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.etc.admin.daos.CarUserMapper" >
+  <resultMap id="BaseResultMap" type="CarUser" >
+    <id column="loginid" property="loginid" jdbcType="INTEGER" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    loginid, password, age, sex, type, username
+  </sql>
+  
+    <!-- selectBynameAndId对应daos里carusermapper的方法名,查询需要resultmap，增删改不需要，
+  caruser是models里的类的路径，这里是别名，在mybatis-config.xml里配置的别名 -->
+  <select id="selectBynameAndId" resultMap="BaseResultMap" parameterType="CarUser">
+  <!-- </include>导入上面sql里的id，表示引入里面的所有定义的列 -->
+  <!-- #{password}表示CarUser里的password属性 -->
+  SELECT <include refid="Base_Column_List"></include>
+	from car_user 
+	where password = #{password} 
+	and username = #{username}
+  </select>
+   
+<!--   ============================== -->
+<update id="updateManager" parameterType="CarUser">
+update car_user
+set username=#{username},type=#{type},sex=#{sex},password=#{password},age=#{age} 
+where loginid=#{loginid}
+</update>
+ 
+  
+<delete id="deleteManagerById" parameterType="CarUser">
+	delete from car_user
+	 where loginid = #{loginid}
+</delete>
+  
+  <!--   插入管理员 -->
+  <insert id="insertManager" parameterType="CarUser">
+  INSERT into car_user (username,type,sex,PASSWORD,age) 
+  values(#{username},#{type},#{sex},#{password},#{age})
+  </insert>
+
+  
+
+  <!-- 查询全部管理员 -->
+  <select id="selectManageAll" resultMap="BaseResultMap" parameterType="CarUser">
+  select 
+	<include refid="Base_Column_List"></include>
+  from car_user
+  </select>
+  
+<!--   修改密码 -->
+  <update id='updatePass' parameterType="CarUser">
+  update car_user c 
+  set c.password = #{password} 
+  where c.loginid=#{loginid}
+  </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<!--   ===========自带的=================== -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from car_user
+    where loginid = #{loginid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from car_user
+    where loginid = #{loginid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="CarUser" >
+    insert into car_user (loginid, password, age, 
+      sex, type, username
+      )
+    values (#{loginid,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{sex,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="CarUser" >
+    insert into car_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="loginid != null" >
+        loginid,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="loginid != null" >
+        #{loginid,jdbcType=INTEGER},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="CarUser" >
+    update car_user
+    <set >
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where loginid = #{loginid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="CarUser" >
+    update car_user
+    set password = #{password,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      sex = #{sex,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR}
+    where loginid = #{loginid,jdbcType=INTEGER}
+  </update>
+</mapper>
