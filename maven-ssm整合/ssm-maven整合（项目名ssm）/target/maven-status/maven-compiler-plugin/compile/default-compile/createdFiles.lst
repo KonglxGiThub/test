@@ -1,0 +1,5 @@
+com\cjk\service\UserService.class
+com\cjk\dao\UserMapper.class
+com\cjk\bean\User.class
+com\cjk\controller\UserController.class
+com\cjk\service\impl\UserServiceImpl.class
